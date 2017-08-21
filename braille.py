@@ -180,6 +180,7 @@ def make_hist(vals, nbins=-1, maxwidth=150, maxheight=10):
     binning.
     """
     extra = {}
+    vals = np.array(vals)
     if nbins > 0:
         extra = {"bins": np.linspace(vals.min(), vals.max(), nbins+1)}
     content, edges = np.histogram([vals], **extra)

@@ -35,3 +35,16 @@ to get a sequential bar graph, or
 for i in `seq 1 10000`; do echo $((RANDOM + RANDOM + RANDOM)); done | ./braille.py -f
 ```
 to get a gaussian histogram.
+
+Or for full control in python,
+```python
+import random
+import braille
+
+# make a histogram with two flat peaks
+# binning is automatic unless nbins is specified
+vals = [random.random()-1.5 for _ in range(500)]
+vals += [random.random()+1.5 for _ in range(500)]
+painter = braille.Painter()
+painter.draw(braille.make_hist(vals, nbins=25))
+```
