@@ -7,19 +7,22 @@ The Braille character set in unicode provides more granularity over full-charact
 by decomposing a full character into a 2 by 4 set of dots, resulting in twice (quadruple) the 
 horizontal (vertical) precision.
 
+Right now, there are two features
+* time series/bar plotting: a list like [1,2,3,4,5] gets plotted sequentially
+* histogramming: a list like [1,2,3,4,5] gets turned into a frequency histogram, in the true sense of "histogram" (not just drawing bars on a regular x-y plot and calling it a histogram)
+
 ## Installation
 
 It's a single file.
+
+(Note that if you're using the histogram functionality, you need to have `numpy` installed.)
 
 ## Examples
 
 N.B.: Characters seem to get shifted on asciinema, but they look perfect in a few terminals that I've tried. Trust me.
 
-`python braille.py --example_hist` gives
-[![example histogram](https://asciinema.org/a/ZvPGK9oieEyZiyOgi2A5rUNSR.png)](https://asciinema.org/a/ZvPGK9oieEyZiyOgi2A5rUNSR?autoplay=1)
-
-`python braille.py --example_timeseries` gives
-[![example timeseries](https://asciinema.org/a/9tlQLJaOJTU7lPZCgb13HqyQK.png)](https://asciinema.org/a/9tlQLJaOJTU7lPZCgb13HqyQK?autoplay=1)
+Try `python braille.py --example_hist` or `python braille.py --example_timeseries` to see some examples.
+[![examples](https://asciinema.org/a/PfyL2Lq5BRZhOxQgQVu0PSxDR.png)](https://asciinema.org/a/PfyL2Lq5BRZhOxQgQVu0PSxDR?autoplay=1)
 
 You can also pipe data via
 ```
