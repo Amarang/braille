@@ -29,7 +29,7 @@ You can also pipe data via
 seq 1 100 | ./braille.py
 ```
 to get a sequential bar graph, or 
-```
+```bash
 # central limit theorem: add 3 flat random numbers to get a pretty gaussian distribution
 # -f forces the script to make a frequency histogram, rather than a time series by default
 for i in `seq 1 10000`; do echo $((RANDOM + RANDOM + RANDOM)); done | ./braille.py -f

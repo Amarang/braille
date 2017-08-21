@@ -236,8 +236,10 @@ class Painter(object):
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("--example_hist", help="histogram instead of sequential data", action="store_true")
-    parser.add_argument("--example_timeseries", help="histogram instead of sequential data", action="store_true")
+    parser.add_argument("-f", "--hist", help="histogram instead of sequential data", action="store_true")
+    parser.add_argument("-n", "--nbins", help="number of bins for histogram", default=-1)
+    parser.add_argument("--example_hist", help="example histogram", action="store_true")
+    parser.add_argument("--example_timeseries", help="example time series", action="store_true")
     args = parser.parse_args()
 
     if sys.stdin.isatty():
@@ -256,7 +258,7 @@ if __name__ == "__main__":
         for item in sys.stdin:
             nums.append(float(item.strip()))
         if args.hist:
-            painter.draw(make_hist(nums, maxheight=6))
+            painter.draw(make_hist(nums, maxheight=6, nbins=int(args.nbins)))
         else:
             painter.draw(horizontal_bar_chart(nums, maxheight=3))
 
